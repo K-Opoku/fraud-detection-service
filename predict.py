@@ -1,7 +1,8 @@
 import joblib
+import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel,Field
-from typing import literal
+from typing import Literal
 
 
 
@@ -15,9 +16,9 @@ def predict_single(transaction):
 
 class Transaction(BaseModel):
     step: int
-    type: literal['cash_in','cash_out','debit','payment','transfer']
+    type: Literal['cash_in','cash_out','debit','payment','transfer']
     amount: float=Field(...,ge=0.0)
-    oldbalanceorg: float=   
+    oldbalanceorg: float=Field(...,ge=0.0)  
     newbalanceorig: float=Field(...,ge=0.0)
     oldbalancedest: float=Field(...,ge=0.0)
     newbalancedest: float=Field(...,ge=0.0)
@@ -32,3 +33,6 @@ def predict(transaction:Transaction)->PredictionResponse:
     fraud_probability=predict_single(transaction_dict)
     fraud= fraud_probability>=0.038
     return PredictionResponse(fraud_probability=fraud_probability,fraud=fraud)
+
+if __name__=='__main__':
+    uvicorn.run(app,host='0.0.0.0',port=8000)
