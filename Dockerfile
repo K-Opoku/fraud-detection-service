@@ -10,8 +10,11 @@ COPY pyproject.toml uv.lock .python-version .
 
 RUN uv sync --locked
 
-COPY 'predict.py' 'final_model_pipeline.pkl' .  
+
+COPY src/main.py .
+COPY src/final_model_pipeline.pkl .
 
 EXPOSE 8000
 
-ENTRYPOINT ["uvicorn", "predict:app", "--host", "0.0.0.0", "--port", "8000"]
+
+ENTRYPOINT ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
