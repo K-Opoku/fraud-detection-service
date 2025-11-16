@@ -75,11 +75,14 @@ This service is fully containerized with Docker.
 * `git` installed.
 
 ### Step 1: Clone the Repository
-
+Open the terminal and run:
 ```bash
-git clone [https://github.com/K-Opoku/fraud-detection-service.git](https://github.com/K-Opoku/fraud-detection-service.git)
+git clone https://github.com/K-Opoku/fraud-detection-service.git
+
 cd fraud-detection-service
 ```
+Or visit the repo:
+[https://github.com/K-Opoku/fraud-detection-service.git](https://github.com/K-Opoku/fraud-detection-service.git)
 
 ### Step 2: Build the Docker Image
 
