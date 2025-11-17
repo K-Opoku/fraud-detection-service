@@ -5,7 +5,7 @@
 [![XGBoost](https://img.shields.io/badge/XGBoost-3.1.1-blue)](https://xgboost.ai/)
 [![Docker Ready](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-
+![Project Demo](demo.gif)
 This project is a complete, production-ready machine learning service for real-time fraud detection. It's built as an end-to-end solution, from data cleaning and model training to a containerized REST API service.
 
 The final artifact is a **Docker image** that runs a **FastAPI** application, which serves a trained **XGBoost** model to make on-demand predictions.
